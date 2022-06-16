@@ -1,19 +1,18 @@
 name: CI
 on:
   pull_request:
-    branch: [develop]
+    branches: [develop]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: use NodeJS
+      - name: Use NodeJS
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-       - run: npm ci
-       - run: npm test -- --coverage
-         env:
-           CI: true
-
+      - run: npm ci
+      - run: npm test -- --coverage
+        env:
+          CI: true
